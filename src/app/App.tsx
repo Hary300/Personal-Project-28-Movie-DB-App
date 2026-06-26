@@ -1,5 +1,5 @@
-import './index.css';
-import HomePage from './pages/HomePage';
+import HomePage from '@/pages/HomePage';
+import '@/styles/index.css';
 
 function App() {
   // TODO: Setup routing dengan React Router

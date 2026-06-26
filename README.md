@@ -1,4 +1,17 @@
+# Data test
+
+title: Spider-Man: Brand New Day
+id: 969681
+
+title: Batman Begins
+id: 272
+
+# my Repo
+
+https://github.com/Hary300/REP-WPH-challenge-8-Hary300-1-Result.git
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/lJ6arYVJ)
+
 # Challenge 8 - Movie Explorer App
 
 Selamat datang di Challenge 8! Di assignment ini, kalian akan membangun sebuah aplikasi web Movie Explorer menggunakan React, TypeScript, dan berbagai modern tools yang sering digunakan di industri.
