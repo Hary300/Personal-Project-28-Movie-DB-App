@@ -65,7 +65,7 @@ export const movieService = {
     return data;
   },
 
-  getMovieFullDetails: async (movieId: string): Promise<MovieFullDetails> => {
+  getMovieFullDetails: async (movieId: number): Promise<MovieFullDetails> => {
     const [
       detailResponse,
       releaseDatesResponse,

@@ -48,11 +48,11 @@ export const useNowPlayingMovies = (page: number = 1) => {
 /** ====
  * 4
  =======*/
-export const useSearchMovie = (keyword: string) => {
+export const useSearchMovie = (keyword: string, page: number) => {
   return useQuery({
-    queryKey: ['movies', 'search', keyword],
+    queryKey: QUERY_KEYS.movies.search(keyword, page),
     queryFn: () => {
-      return movieService.searchMovies(keyword);
+      return movieService.searchMovies(keyword, page);
     },
   });
 };
@@ -60,9 +60,9 @@ export const useSearchMovie = (keyword: string) => {
 /** ====
  * 5
  =======*/
-export const useMovieFullDetails = (movieId: string) => {
+export const useMovieFullDetails = (movieId: number) => {
   return useQuery({
-    queryKey: ['movies', 'movieDetails', movieId],
+    queryKey: QUERY_KEYS.movies.details(movieId),
     queryFn: () => {
       return movieService.getMovieFullDetails(movieId);
     },
