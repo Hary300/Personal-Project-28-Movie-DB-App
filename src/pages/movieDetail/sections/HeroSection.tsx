@@ -1,5 +1,5 @@
 const HeroSection = () => {
-  return <div>DetailHeroSection</div>;
+  return <section id='hero-detail-page'>DetailHeroSection</section>;
 };
 
 export default HeroSection;

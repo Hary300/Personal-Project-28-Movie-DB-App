@@ -8,7 +8,7 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div>
+    <div className='max-w-360 m-auto'>
       <Navbar />
       <main>{children}</main>
       <Footer />

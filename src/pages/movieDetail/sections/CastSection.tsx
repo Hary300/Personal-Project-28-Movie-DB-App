@@ -1,5 +1,5 @@
 const CastSection = () => {
-  return <div>CastSection</div>;
+  return <section id='cast-detail-page'>CastSection</section>;
 };
 
 export default CastSection;

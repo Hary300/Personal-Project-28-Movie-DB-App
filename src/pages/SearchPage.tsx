@@ -1,9 +1,14 @@
+import Container from '@/components/layouts/Container';
 import MainLayout from '@/components/layouts/MainLayout';
 
 const SearchPage = () => {
   return (
     <MainLayout>
-      <h1>SearchPage</h1>
+      <section id='search-result-list'>
+        <Container>
+          <h1>SearchPage</h1>
+        </Container>
+      </section>
     </MainLayout>
   );
 };

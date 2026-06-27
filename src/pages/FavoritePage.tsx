@@ -1,9 +1,14 @@
+import Container from '@/components/layouts/Container';
 import MainLayout from '@/components/layouts/MainLayout';
 
 const FavoritePage = () => {
   return (
     <MainLayout>
-      <h1>Favorite page</h1>
+      <section id='favorite-list'>
+        <Container>
+          <h1>Favorite page</h1>
+        </Container>
+      </section>
     </MainLayout>
   );
 };

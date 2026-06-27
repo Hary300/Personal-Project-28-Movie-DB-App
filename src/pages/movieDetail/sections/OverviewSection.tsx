@@ -1,5 +1,5 @@
 const OverviewSection = () => {
-  return <div>OverviewSection</div>;
+  return <section id='overview-detail-page'>OverviewSection</section>;
 };
 
 export default OverviewSection;
