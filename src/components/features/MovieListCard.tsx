@@ -2,6 +2,7 @@ import { Star } from 'lucide-react';
 import WatchTrailerButton from '../ui/app-ui/WatchTrailerButton';
 import FavoriteButton from '../ui/app-ui/FavoriteButton';
 import type { SearchMovieItem } from '@/types/movie';
+import { useNavigate } from 'react-router-dom';
 
 type MovieListCardProps = {
   posterUrl: string;
@@ -9,10 +10,17 @@ type MovieListCardProps = {
 };
 
 const MovieListCard = ({ posterUrl, data }: MovieListCardProps) => {
+  const navigate = useNavigate();
+  function handleClick(movieId: number) {
+    navigate(`/movieDetail/${movieId}`);
+  }
   return (
-    <div className='grid grid-cols-[auto_1fr_auto] gap-x-xl gap-y-3xl lg:gap-x-3xl pb-4xl lg:pb-6xl'>
+    <div className='grid grid-cols-[auto_1fr_auto] gap-x-xl gap-y-3xl lg:gap-x-3xl pb-4xl lg:pb-6xl hover:scale-102 transition-transform duration-300 cursor-pointer'>
       {/* grid 1 */}
-      <div className='max-w-26 rounded-md lg:max-w-45.5 lg:rounded-xl overflow-hidden lg:row-span-2 lg:order-1'>
+      <div
+        className='max-w-26 rounded-md lg:max-w-45.5 lg:rounded-xl overflow-hidden lg:row-span-2 lg:order-1'
+        onClick={() => handleClick(data.id)}
+      >
         <img src={posterUrl} alt={`${data.title} image`} />
       </div>
 
