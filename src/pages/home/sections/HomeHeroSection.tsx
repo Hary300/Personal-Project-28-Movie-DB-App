@@ -5,6 +5,7 @@ import { useTrendingMovies } from '@/hooks/useMovies';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { getImageUrl } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
+import HomeHeroSkeleton from './HomeHeroSkeleton';
 const randomIndex = Math.floor(Math.random() * 20);
 
 const HomeHeroSection = () => {
@@ -18,7 +19,7 @@ const HomeHeroSection = () => {
   const movies = trendingData?.results;
   const featuredMovie = movies?.[randomIndex];
 
-  if (isLoadingTrending) return <p>Loading...</p>;
+  if (isLoadingTrending) return <HomeHeroSkeleton />;
   if (errorTrending) return <p>{errorTrending.message}</p>;
 
   const path = featuredMovie?.backdrop_path;
