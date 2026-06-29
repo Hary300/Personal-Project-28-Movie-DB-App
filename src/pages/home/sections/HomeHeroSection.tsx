@@ -24,7 +24,7 @@ const HomeHeroSection = () => {
   useEffect(() => {
     if (movies.length === 0) return;
     const interval = setInterval(
-      () => setCurrentIndex((prev) => (prev + 1) % movies.length),
+      () => setCurrentIndex(Math.floor(Math.random() * movies.length)),
       10000
     );
     return () => clearInterval(interval);
