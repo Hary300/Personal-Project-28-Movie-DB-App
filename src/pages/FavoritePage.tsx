@@ -18,7 +18,7 @@ const FavoritePage = () => {
           {favorite.length === 0 ? (
             <EmptyDataPage variant='favorite' />
           ) : (
-            <MovieList movies={favorite} />
+            <MovieList movies={favorite} reverse />
           )}
         </Container>
         <Toaster
