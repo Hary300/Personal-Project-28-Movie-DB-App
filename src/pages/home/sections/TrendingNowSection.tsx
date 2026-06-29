@@ -25,7 +25,7 @@ const TrendingNowSection = () => {
           Trending Now
         </h2>
       </div>
-      <div className='relative flex overflow-x-hidden px-xl lg:px-8xl xl:px-11xl'>
+      <div className='relative flex overflow-hidden px-xl lg:px-8xl xl:px-11xl'>
         <Carousel
           opts={{
             align: 'start',
