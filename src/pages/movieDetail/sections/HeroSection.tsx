@@ -38,7 +38,7 @@ const HeroSection = ({ data }: HeroSectionProps) => {
   return (
     <section id='hero-detail-page'>
       <motion.div
-        className='relative w-full h-98 lg:h-202.5 -z-1'
+        className='relative w-full h-98 md:h-202.5 -z-1'
         variants={fadeIn}
         initial='hidden'
         animate='visible'
