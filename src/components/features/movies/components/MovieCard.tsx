@@ -16,7 +16,7 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
     navigate(`/movieDetail/${movieId}`);
   }
 
-  const itemVariants: Variants = {
+  const fadeInFromTop: Variants = {
     hidden: {
       opacity: 0,
       y: -20,
@@ -24,6 +24,7 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
     visible: {
       opacity: 1,
       y: 0,
+      transition: { duration: 0.2, ease: 'easeOut' },
     },
   };
 
@@ -31,9 +32,8 @@ const MovieCard = ({ movie, imageUrl, index }: MovieCardProps) => {
     <motion.div
       className='py-1.5 cursor-pointer'
       onClick={() => handleDetailClick(movie.id)}
-      variants={itemVariants}
+      variants={fadeInFromTop}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2, ease: 'easeInOut' }}
     >
       <div className='relative rounded-md overflow-hidden'>
         <img src={imageUrl} alt={`${movie.title} image`} />

@@ -3,23 +3,16 @@ import { IMAGE_SIZES } from '@/lib/constants';
 import MovieCard from './MovieCard';
 import { getImageUrl } from '@/lib/utils/getImageUrl';
 import { CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import { motion, stagger, type Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { staggerContainer } from '@/motions';
 
 type TrendingMovieCarouselProps = {
   movies: SearchMovieItem[];
 };
 
 const TrendingMovieCarousel = ({ movies }: TrendingMovieCarouselProps) => {
-  const containerVariant: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        delayChildren: stagger(0.1),
-      },
-    },
-  };
   return (
-    <motion.div variants={containerVariant} initial='hidden' animate='visible'>
+    <motion.div variants={staggerContainer} initial='hidden' animate='visible'>
       <CarouselContent className='px-4 lg:px-0 '>
         {movies.map((movie, index) => {
           const size = IMAGE_SIZES.poster.medium;

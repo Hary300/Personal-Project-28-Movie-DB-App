@@ -8,6 +8,7 @@ import HomeHeroSkeleton from './HomeHeroSkeleton';
 import { getImageUrl } from '@/lib/utils/getImageUrl';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { fadeInOut, fadeInOutFromBottom } from '@/motions';
 
 const HomeHeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,44 +46,55 @@ const HomeHeroSection = () => {
 
   return (
     <section id='hero-home-page' className='relative'>
-      <div className='relative h-98 lg:h-202.5 -z-1'>
-        <AnimatePresence mode='wait'>
-          <motion.img
-            key={featuredMovie.id}
+      <AnimatePresence mode='wait'>
+        <motion.div
+          className='relative h-98 md:h-202.5 -z-1'
+          key={`bg-${featuredMovie.id}`}
+          variants={fadeInOut}
+          initial='hidden'
+          animate='visible'
+          exit='exit'
+        >
+          <img
             src={backdropImage}
             alt={`${featuredMovie.title} image`}
             className='size-full object-center object-cover'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
           />
-        </AnimatePresence>
-        <FadeOverlay
-          position='bottom'
-          className='h-55.25 lg:h-auto lg:inset-y-0'
-        />
-      </div>
-      <div className='flex flex-col gap-3xl lg:gap-6xl px-4 lg:p-0 -mt-42.25 lg:mt-0 lg:absolute lg:top-74.5 lg:left-8xl xl:left-11xl max-w-170 mx-auto'>
-        <div className='flex flex-col gap-sm h-32 lg:h-40'>
-          <h1 className='font-bold text-display-xs lg:text-display-2xl'>
-            {featuredMovie.title}
-          </h1>
-          <p className='text-sm text-neutral-400 lg:text-md line-clamp-3'>
-            {featuredMovie.overview}
-          </p>
-        </div>
-        <div className='flex flex-col md:flex-row gap-xl lg:max-w-119 '>
-          <WatchTrailerButton movieId={featuredMovie.id} />
+          <FadeOverlay
+            position='bottom'
+            className='h-55.25 lg:h-auto lg:inset-y-0'
+          />
+        </motion.div>
+      </AnimatePresence>
+      <AnimatePresence mode='wait'>
+        <motion.div
+          className='flex flex-col gap-3xl lg:gap-6xl px-4 lg:p-0 -mt-42.25 lg:mt-0 lg:absolute lg:top-74.5 lg:left-8xl xl:left-11xl max-w-170 mx-auto'
+          key={`content-${featuredMovie.id}`}
+          variants={fadeInOutFromBottom}
+          initial='hidden'
+          animate='visible'
+          exit='exit'
+        >
+          <div className='flex flex-col gap-sm h-32 lg:h-40'>
+            <h1 className='font-bold text-display-xs lg:text-display-2xl'>
+              {featuredMovie.title}
+            </h1>
+            <p className='text-sm text-neutral-400 lg:text-md line-clamp-3'>
+              {featuredMovie.overview}
+            </p>
+          </div>
+          <div className='flex flex-col md:flex-row gap-xl lg:max-w-119 '>
+            <WatchTrailerButton movieId={featuredMovie.id} />
 
-          <Button
-            variant={'outline'}
-            onClick={() => handleDetailClick(featuredMovie.id)}
-          >
-            See Detail
-          </Button>
-        </div>
-      </div>
+            <Button
+              variant={'outline'}
+              onClick={() => handleDetailClick(featuredMovie.id)}
+            >
+              See Detail
+            </Button>
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 };

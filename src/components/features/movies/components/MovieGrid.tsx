@@ -1,27 +1,19 @@
 import MovieCard from './MovieCard';
 import { IMAGE_SIZES } from '@/lib/constants';
 import { getImageUrl } from '@/lib/utils/getImageUrl';
+import { staggerContainer } from '@/motions';
 import type { SearchMovieItem } from '@/types/movie';
-import { stagger, motion, type Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type MovieGridProps = {
   movies: SearchMovieItem[];
-};
-
-const containerVariant: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: stagger(0.1),
-    },
-  },
 };
 
 const MovieGrid = ({ movies }: MovieGridProps) => {
   return (
     <motion.div
       className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-xl gap-y-4xl lg:gap-x-2xl lg:gap-y-5xl'
-      variants={containerVariant}
+      variants={staggerContainer}
       initial='hidden'
       animate='visible'
     >
